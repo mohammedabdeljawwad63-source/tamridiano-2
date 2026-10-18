@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tamridiano
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_PASSCODE
+        sync: false
+      - key: LLM_API_KEY
+        sync: false
